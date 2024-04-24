@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <title> Joseph's Hobbies </title>
+        <link rel="stylesheet" href = "styles.css">
+    </head>
+
+    <body style = "background-color:lightgreen;">
+        <h1 class = "program"><i> My Hobbies </i></h1>
+        <hr>
+        <h2><u>-Eurobeat</u><h2>
+            <h3> Favorites: </h4>
+                <h4><p style="margin-left:25px;"> Right Now - Dark Angels </p></h4>
+                <h4><p style="margin-left:25px;"> Limousine - Manuel </p></h4>
+                <h4><p style="margin-left:25px;"> Euronight - Eurogroove </p></h4>
+                <h4><p> I listen to Eurobeat everyday from spotify and youtube. I also try to come across new songs to add to my playlist. </p></h4>
+            <h5><a href = https://www.discogs.com/label/274469-Super-Eurobeat?page=1> -Eurobeat Albums </a><h5>
+        <div id="gallery">
+            <img src="supereuro.vol145.jpg" id="current-image">
+        </div>
+        <div class="btns">
+            <button id="prev-button">Prev</button>
+            <button id="next-button">Next</button>
+        </div>
+
+        <script>
+            const gallery = document.getElementById('gallery')
+            const prevButton = document.getElementById('prev-button')
+            const nextButton = document.getElementById('next-button')
+
+            const images = ['supereuro.vol75.jpg','supereuro.vol145.jpg', 'supereuro.vol169.jpg','supereurobeat.vol116.jpg','supereuro.vol187.jpg']
+            let currentIndex =0;
+
+            prevButton.addEventListener('click',()=>{
+                currentIndex = (currentIndex + 1+ images.length) % images.length;
+                updateImage();
+            });
+
+            nextButton.addEventListener('click',()=>{
+                currentIndex = (currentIndex + 1) % images.length;
+                updateImage();
+            });
+
+            function updateImage() {
+                const img = gallery.querySelector('#current-image');
+                img.classList.add('fade-out');
+                setTimeout(() => {
+                    img.src = images[currentIndex]
+                    img.alt = images[currentIndex]
+                    img.classList.remove('fade-out')
+                },500);
+            }
+
+        </script>
+        <h2><u> -Games </u><h2>
+            <h4><p style = "margin-left:25px;"> -Clash of Clans </p></h4>
+            <h4><p style = "margin-left:50px;"> -Progress with friends and teach them about strategies .</p></h4>
+            <h4><p style = "margin-left:25px;"> -Rhythm Games </p></h4>
+        <h2><u> -Badminton</u> <h2>
+            <h3><p style = "margin-left:25px;"> -Favorite sport but rare opportunities to play </p></h3>
+            <h3><p style = "margin-left:50px;"> -Often play in church with other people</p></h3>
+            <img src = "https://www.tutorialspoint.com/badminton/images/badminton_racket.jpg" width = "200px" height = "200px" alt = "Badminton">
+        
+        <div class="dropdownhobby">
+            <button class="dropbtn">About me!</button>
+            <div class="dropdownhobby-content">
+                <a href="resume.html">Resume</a>
+                <a href="programs.html">Programs</a>
+                <a href="index.html">Welcome</a>
+            </div>
+        </div>
+    </body>
+
+</html>
